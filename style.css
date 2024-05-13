@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(45deg, rgb(241, 238, 238), rgb(10, 10, 10));
+    color: gold;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow-x: hidden;
+    padding: 64px;
+}
+
+h1 {
+    font-size: 96px;
+    margin: 96px;
+    text-align: center;
+}
+
+.gallery {
+    background: linear-gradient(60deg,
+     rgba(255,255,255,.3), rgba(255,255,255,.5));
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style-type: none;
+    padding: 16px;
+}
+
+.thumbnail {
+    border: 3px solid rgba(255,255,255,.9);
+    border-radius: 10px;
+    box-shadow: 0 0 48px 1px rgba(0,0,0,.5);
+    cursor: pointer;
+    margin: 32px;
+    max-height: 200px;
+    max-width: 300px;
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform .3s;
+}
+
+.thumbnail:hover {
+    transform: scale(1.15);
+}
+
+.thumbnail img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.thumbnail img:focus,
+.thumbnail img:focus-visible {
+    border: solid 3px rgb(250, 246, 5); 
+}
+
+.popup {
+    align-content: center;
+    animation: fadeIn .3s linear;
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,.5);
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+}
+
+.popup.hidden {
+    display: none;
+}
+
+.popup.fade-out {
+    animation: fadeOut .3s both;
+}
+
+.popup__img {
+    max-height: 80%;
+    max-width: 80%;
+}
+
+.popup__close {
+    background-color: transparent;
+    border: none;
+    color: gold;
+    cursor: pointer;
+    font-size: 128px;
+    position: fixed;
+    right: 64px;
+    top: 64px;
+}
+
+
+
+.popup__arrow {
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    color: gold;
+    cursor: pointer;
+    font-size: 128px;
+    height: 128px;
+    line-height: 128px;
+    position: absolute;
+    top: 50%;
+    width: 128px;
+}
+
+.popup__close,
+.popup__arrow {
+    opacity: .5;
+    transition: opacity .3s;
+}
+
+.popup__close:hover,
+.popup__arrow:hover
+ {
+    opacity: 1;
+}
+
+.popup__arrow--left {
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.popup__arrow--right {
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.popup__numeration {
+    font-size: 64px;
+    position: absolute;
+    top: 2%;
+    transform: translateX(-50%,);
+
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
